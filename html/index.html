@@ -1,0 +1,58 @@
+<html>
+    <style>
+        body
+        {
+            text-align: center;
+            color: white;
+            background-color: black;
+        }
+    </style>
+
+    <body>
+        <title>Test Example</title>
+        <h1>This is a test website to show what CHTTPD is capable of.</h1>
+        <h2>CHTTPD is written in C from scratch using threads (I don't like non-blocking I/O) and raw sockets.</h2>
+        <h2>Unfortunately, this can lead to Slowloris attacks due to limited threads.</h2>
+        <h2>It is not meant for production (it is insecure, full of memory leaks!), and it is only a proof of concept for myself.</h2>
+        <h2>For instance, if you refresh quickly enough, you'll get a double free().</h2>
+        
+        <h4>This image dynamically changes because it is a PHP script (maybe try passing a string under ?text=): </h4>
+        <img src="problem.php" width="25%">
+        <h3>Here is a video (Big Buck Bunny):</h3>
+        <video controls autoplay muted>
+            <source src="test.webm" type="video/webm">
+        </video>
+
+        <h3>A large file (200MiB): <a href="big.bin">here</a></h3>
+        <h3>A file that doesn't exist (404): <a href="does-not-exist.bin">here</a></h3>
+        <h3>A forbidden file (.private) (if you netcatted and typed GET /../path/to as well): <a href="path/forbidden/">here</a></h3>
+        <h3>A directory listing <a href="path/">here</a></h3>
+
+        <h3>PHP GET</h3>
+        <form action="test.php" method="GET">
+            Text: 
+            <br>
+            <input type="text" name="query" value="Text">
+            <br>
+            <input type="submit">
+        </form>
+
+        <h3>PHP POST</h3>
+        <form action="post.php" method="POST">
+            Text: 
+            <br>
+            <input type="text" name="data" value="Text">
+            <br>
+            <input type="submit">
+        </form>
+
+        <h3>PHP File Upload (PHP execution denied thanks to .nocgi).</h3>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            Select image to upload:
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Upload Image" name="submit">
+        </form>
+
+        <h3>To view uploaded files, go <a href="uploads/">here</a>.</h3>
+    </body>
+</html>

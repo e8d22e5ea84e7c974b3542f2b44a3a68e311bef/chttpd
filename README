@@ -1,0 +1,7 @@
+There are special files that tell the web server certain things about how it should function:
+
+.nocgi - will disable CGI in that directory,
+.private - will make the directory forbidden,
+.nolist - will make the directory listing forbidden.
+
+Their existence alone activates them. The server does not check what is inside them, so they should preferably be created using the UNIX 'touch' command.
